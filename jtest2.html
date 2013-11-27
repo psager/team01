@@ -10,38 +10,45 @@
 	</head> 
 	
 	<script type = "text/javascript">
-		window.onload = function setHeight() {
-			var newheight = window.innerheight;
-			newheight = newheight - 400;
-			var heightstring = newheight.toString() + "px";
-			var element = document.getElementById("wrapper");
-			element.style.height = heightstring;
+		window.onload = function() {
+			setHeight();
+		}
+		window.onresize = function() {
+			setHeight();
+		}
+		function setHeight() {
+			var newheight = window.innerHeight;
+			newheight = newheight;
+			var top = 0;
 			
-			}
-			window.onload = setHeight();
-			</script>
-	
+			var ele = document.getElementById("wrapper");
+			while(ele.tagName != "BODY") {
+					top += ele.offsetTop;
+					ele = ele.offsetParent;
+	        }
+			
+			newheight = newheight - top - 75;
+			var heightString = newheight.toString() + "px";
+			var element = document.getElementById("wrapper");
+			element.style.height = heightString;
+		}
+	</script>
 	<style type="text/css">
-	#wrapper {
-    overflow:auto;
-	}
-	
-	label {
-    position:absolute;    /*added*/
-    bottom:0px;  
-    width:98%;        
-	}
+		#wrapper {
+		overflow:auto;
+		
+		}
 	</style>
 <body> 
 
-<div data-role="page" id=“home”>
+<div data-role="page" id="home">
 	<div data-role="header" id="banner" data-theme="c">
-		<img style="border-radius: 10px;" height="20%" src="file:RU.jpg" /> 
+		<img height="20%" src="ru.jpg" /> 
 	</div><!-- /header -->
 
 	<div data-role="content">	
 		<div style="text-align: left;">
-		<h3>Current Appointments</h3>
+		<h3>My Appointments</h3>
 		</div>
 		<div id ="wrapper">	
 		<ul data-role="listview" data-inset="true" data-theme="b">
@@ -51,6 +58,11 @@
 			<li><a href="#adv4"><h5>Advisor4</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
 			<li><a href="#adv5"><h5>Advisor5</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
 			<li><a href="#adv6"><h5>Advisor6</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
 			<li><a href="#adv7"><h5>Advisor7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
 		</ul>
 		</div>
