@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Advisor Appointment Application</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/appointments.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	
+	
+	<script type = "text/javascript">
+		
+		$( document ).on( "pageshow", "#advisor", function( event ) {
+				setHeight();
+		});
+		
+		$( window ).resize(function() {
+				setHeight();
+		});
+		
+		function setHeight() {
+			var top = 0;
+			
+			var ele = document.getElementById("wrapper");
+			while(ele.tagName != "BODY") {
+					top += ele.offsetTop;
+					ele = ele.offsetParent;
+	        }
+	        
+			var newheight = $(window).height() - top - 75;
+			var element = document.getElementById("wrapper");
+			element.style.height = newheight + "px";
+			
+			element = document.getElementById("logo");
+			var img = new Image();
+			img.src = element.src;
+			var naturalWidth = img.width;
+			
+			element.style.width = naturalWidth + "px";
+			if (element.offsetWidth >= $(window).width()) {
+				element.style.width = "100%";
+			}
+			
+			top = document.getElementById("banner").offsetHeight;
+	        document.getElementById("admin").style.top = top + "px";
+		}
+
+	</script>
+	
+	<style type="text/css">
+	
+		#wrapper {
+		overflow:auto;
+		}
+		
+		#admin {
+		position:absolute;
+		right:15px;
+		}
+		
+	</style>
+	</head> 
+<body> 
+<div data-role="page" id="advisor">
+	<div data-role="header" id="banner" data-theme="c">
+		<img id = "logo" src="ru.png" /> 
+	</div><!-- /header -->
+
+	<div data-role="content">	
+	<a href="AdvisorCalendar.html" rel= "external" data-role="button" class="ui-btn-left" data-icon="arrow-l">Back</a>
+		<div style="text-align: left;">
+			<div id ="admin">
+				
+			</div><!-- /admin -->
+			<h3 id = "heading">Date Selected Goes here</h3>
+		</div><!-- /text-left -->
+		<div id ="wrapper">	<!-- div for scrollable list -->
+		<ul data-role="listview" data-inset="true" data-theme="b">
+			<li><a href="AdvisorTimeslotDetails.html"><h5>8:00 to 8:30</h5></a></li> 
+			<li><a href="#adv2"><h5>8:30 to 9:00</h5></a></li> 
+			<li><a href="#adv3"><h5>time3</h5></a></li> 
+			<li><a href="#adv4"><h5>time4</h5></a></li>
+			<li><a href="#adv5"><h5>time5</h5></a></li>
+			<li><a href="#adv6"><h5>time6</h5></a></li>
+			<li><a href="#adv7"><h5>time7</h5></a></li>
+			<li><a href="#adv7"><h5>time8</h5></a></li>
+			<li><a href="#adv7"><h5>time9</h5></a></li>
+			<li><a href="#adv7"><h5>time10</h5></a></li>
+			<li><a href="#adv7"><h5>time11</h5></a></li>
+			<li><a href="#adv7"><h5>time12</h5></a></li>
+		</ul>
+		</div><!-- /wrapper -->
+		<a href="AdvisorAddTimeslots.html">
+			<input type="button" name="Add Timeslot" value="Add Timeslot" id="Create" class="button" data-theme="a"/>
+		</a>
+	</div><!-- /content -->
+
+
+</div><!-- /page home -->
+
+
+</body>
+</html>

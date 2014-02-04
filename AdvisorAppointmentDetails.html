@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Advisor Appointment Application</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/appointments.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	
+	<script type = "text/javascript">
+	
+		$( document ).on( "pageshow", "#admin", function( event ) {
+				setHeight();
+		});
+		
+		$( window ).resize(function() {
+				setHeight();
+		});	
+	
+		function setHeight() {
+			element = document.getElementById("logo");
+			var img = new Image();
+			img.src = element.src;
+			var naturalWidth = img.width;
+			
+			element.style.width = naturalWidth + "px";
+			if (element.offsetWidth >= $(window).width()) {
+				element.style.width = "100%";
+			}
+		}
+
+	</script>
+	</head> 
+<body> 
+
+<div data-role="page" id="admin" data-add-back-btn="true">
+
+
+	<div data-role="header" id="banner" data-theme="c">
+		<img id = "logo" src="ru.png" /> 
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<a href="advisor_view.html" rel= "external" data-role="button" class="ui-btn-left" data-icon="arrow-l">Back</a>
+		<div style="text-align: left;">
+		<h2>
+		Time:
+		</br></br>
+		Student:
+		</br></br>
+		Length:
+		</br></br>
+		Topic:
+		</br></br>
+		Location:
+		</h2>
+		</div>
+		<div id ="wrapper">	
+		<ul data-role="listview" data-inset="true" data-theme="b">
+		
+		</ul>
+		</div>
+			
+			<label><input type="button" name="Cancel This Appointment" value="Cancel This Appointment" id="Create" class="cancelButton" data-theme="a"/></label>
+	</div><!-- /content -->
+
+	
+	
+</div><!-- /page home -->
+
+
+
+</body>
+</html>
+
