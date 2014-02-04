@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Advisor Appointment Application</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/appointments.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	</head> 
+	
+	<script type = "text/javascript">
+		window.onload = function() {
+			setHeight();
+		}
+		window.onresize = function() {
+			setHeight();
+		}
+		function setHeight() {
+			var newheight = window.innerHeight;
+			newheight = newheight;
+			var top = 0;
+			
+			var ele = document.getElementById("wrapper");
+			while(ele.tagName != "BODY") {
+					top += ele.offsetTop;
+					ele = ele.offsetParent;
+	        }
+			
+			newheight = newheight - top - 75;
+			var heightString = newheight.toString() + "px";
+			var element = document.getElementById("wrapper");
+			element.style.height = heightString;
+		}
+
+	</script>
+	
+	<style type="text/css">
+	
+		#wrapper {
+		overflow:auto;
+		}
+		
+		#admin {
+		position:absolute;
+		right:5%;        
+		}
+		
+	</style>
+<body> 
+<div data-role="page" id="home">
+	<div data-role="header" id="banner" data-theme="c">
+		<img src="ru.png" /> 
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div style="text-align: left;">
+			<div id ="admin">
+				<!-- I added the admin button here and it stays at about the same height as the 'My Appointments' text-->
+				<!-- for #admin css, I didn't add top so that the admin button would automatically be placed over
+				the 'My Appointments' text -->
+				<!-- Also, it slightly overlaps with the scrollable list-->
+				<a href="admin_view.html">
+					<input type="button" value="Admin" data-theme="a"/>
+				</a>
+			</div><!-- /admin -->
+			<h3>My Appointments</h3>
+		</div><!-- /text-left -->
+		<div id ="wrapper">	<!-- div for scrollable list -->
+		<ul data-role="listview" data-inset="true" data-theme="b">
+			<li><a href="#adv1"><h5>Student1</h5><p>9:00am Monday, Sept. 26, 2013</p></a></li> 
+			<li><a href="#adv2"><h5>Student2</h5><p>10:00am Tuesday, Sept. 27, 2013</p></a></li> 
+			<li><a href="#adv3"><h5>Student3</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li> 
+			<li><a href="#adv4"><h5>Student4</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv5"><h5>Student5</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv6"><h5>Student6</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student7</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student8</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student9</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student10</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student11</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+			<li><a href="#adv7"><h5>Student12</h5><p>1:30pm Monday, Sept. 26, 2013</p></a></li>
+		</ul>
+		</div><!-- /wrapper -->
+			<input type="button" name="Manage Appointments" value="Manage Appointments" id="Create" class="button" data-theme="a"/>
+	</div><!-- /content -->
+
+
+</div><!-- /page home -->
+
+<!-- example page with back button, may need to be deleted -->
+<div data-role="page" id="adv1">
+	<div data-role="header" data-theme="c">
+		<h1>Example page until other pages are created</h1>
+	</div><!-- /header -->
+	<div data-role="content">	
+		<p>CONTENT HERE</p>		
+	</div><!-- /content -->
+	<div data-role="footer">
+		<h4> PAGE Footer </h4>
+	</div><!-- /footer -->
+</div><!-- /page NAME -->
+
+</body>
+</html>
