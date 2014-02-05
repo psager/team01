@@ -10,7 +10,7 @@
 	
 	<script type = "text/javascript">
 	
-		$( document ).on( "pageshow", "#admin", function( event ) {
+		$( document ).on( "pageshow", "#add", function( event ) {
 				setHeight();
 		});
 		
@@ -34,7 +34,7 @@
 	</head> 
 <body> 
 
-<div data-role="page" id="admin" data-add-back-btn="true">
+<div>
 
 
 	<div data-role="header" id="banner" data-theme="c">
@@ -47,13 +47,16 @@
 		<h2>
 		-Date- 
 		</br></br>
-		<form>
-		Time: <input type="text">
+		
+		Time: 
+		<input type="text">
+		</textarea>
+
 		</br>
 		Location: <input type="text">
 		</br>
-		Notice Time: <input type="text">
-		</form>
+		Notice Time: (Hours)<input type="text">
+		
 		</h2>
 		</div>
 		<div id ="wrapper">	

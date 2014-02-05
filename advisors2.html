@@ -3,7 +3,7 @@
 	<head> 
 	<title>Advisor Appointment Application</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="themes/appointments.css" />
+	<link rel="stylesheet" href="themes/appointments.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
@@ -43,14 +43,15 @@
 		
 		#admin {
 		position:absolute;
-		right:5%;        
+		right:10%;
+    	width:20%;        
 		}
 		
 	</style>
 <body> 
 <div data-role="page" id="home">
 	<div data-role="header" id="banner" data-theme="c">
-		<img src="ru.png" /> 
+		<img height="20%" src="ru.jpg" /> 
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -60,7 +61,7 @@
 				<!-- for #admin css, I didn't add top so that the admin button would automatically be placed over
 				the 'My Appointments' text -->
 				<!-- Also, it slightly overlaps with the scrollable list-->
-				<a href="admin_view.html">
+				<a href="Admin.html">
 					<input type="button" value="Admin" data-theme="a"/>
 				</a>
 			</div><!-- /admin -->
