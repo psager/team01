@@ -1,16 +1,20 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-	<title>Advisor Appointment Application</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="themes/appointments.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-	
-	<script type = "text/javascript">
-	
-		$( document ).on( "pageshow", "#admin", function( event ) {
+<!DOCTYPE html>
+<html>
+<head>
+<title>Advisor Appointment Application</title> 
+<link href='./fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='./fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="themes/appointments.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<script src='./lib/jquery.min.js'></script>
+<script src='./lib/jquery-ui.custom.min.js'></script>
+<script src='./fullcalendar/fullcalendar.min.js'></script>
+<script type = "text/javascript">
+		
+		$( document ).on( "pageshow", "#student", function( event ) {
 				setHeight();
 		});
 		
@@ -19,6 +23,18 @@
 		});	
 	
 		function setHeight() {
+			var top = 0;
+			
+			var ele = document.getElementById("wrapper");
+			while(ele.tagName != "BODY") {
+					top += ele.offsetTop;
+					ele = ele.offsetParent;
+	        }
+	        
+			var newheight = $(window).height() - top - 75;
+			var element = document.getElementById("wrapper");
+			element.style.height = newheight + "px";
+			
 			element = document.getElementById("logo");
 			var img = new Image();
 			img.src = element.src;
@@ -29,36 +45,54 @@
 				element.style.width = "100%";
 			}
 		}
-
 	</script>
-	</head> 
-<body> 
+	
+<script>
 
-<div>
-
-
-	<div data-role="header" id="banner" data-theme="c">
-		<img id = "logo" src="ru.png" /> 
-	</div><!-- /header -->
-
-	<div data-role="content">
-		<a href="advisor_view.html" rel= "external" data-role="button" class="ui-btn-left" data-icon="arrow-l">Back</a>
-		<div style="text-align: left;">
-		<!-- /calendar goes here -->
-		</div>
-		<div id ="wrapper">	
-		<ul data-role="listview" data-inset="true" data-theme="b">
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
 		
-		</ul>
-		</div>
-			
-			</div><!-- /content -->
+		$('#calendar').fullCalendar({
+			editable: false,
+			selectable: true,
+			select: function(start, end, allDay) {
+				window.location.href = 'AdvisorTimeslots.html';
+			}
+		});
+		
+	});
 
-	
-	
-</div><!-- /page home -->
+</script>
+<style>
 
+	body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
 
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+		}
 
+</style>
+</head>
+<body>
+<div data-role="header" id="banner" data-theme="c">
+	<div style="text-align: left;">
+		<img id = "logo" src="ru.png" /> 
+	</div>	<!-- /text-align -->
+</div><!-- /header -->
+<div style="text-align: left;">
+<a href="advisor_view.html" rel= "external" data-role="button" class="ui-btn-left" data-icon="arrow-l">Back</a>
+</div> <!-- /text-align -->
+<div id='calendar'>
+</div>
 </body>
 </html>
